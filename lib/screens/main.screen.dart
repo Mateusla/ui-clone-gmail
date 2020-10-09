@@ -7,6 +7,8 @@ import 'package:ui_clone_gmail/components/menu.component.dart';
 import 'package:ui_clone_gmail/controllers/main.screen.controller.dart';
 import 'package:ui_clone_gmail/pages/principal.page.dart';
 
+import 'search.screen.dart';
+
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -53,53 +55,77 @@ class _MainScreenState extends State<MainScreen> {
                 snap: true,
                 floating: true,
                 elevation: 0,
-                toolbarHeight: 70,
+                toolbarHeight: 65,
                 automaticallyImplyLeading: false,
                 backgroundColor: Colors.transparent,
-                title: Card(
-                  elevation: 4,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8)
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 4),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 20,
-                          child: Material(
-                            clipBehavior: Clip.antiAlias,
-                            type: MaterialType.transparency,
-                            shape: CircleBorder(),
-                            child: IconButton(
-                              color: Colors.black,
-                              icon: Icon(Icons.menu), 
-                              onPressed: () => scaffoldKey.currentState.openDrawer(),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 60,
-                          child: Text(
-                            'Pesquisar no e-mail',
-                            style: TextStyle(
-                              color: Colors.grey[600]
-                            ),
-                          )
-                        ),
-                        Expanded(
-                          flex: 20,
-                          child: IconButton(
-                            icon: CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                'https://images.unsplash.com/photo-1493666438817'
-                                '-866a91353ca9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1498&q=80'
+                title: Hero(
+                  tag: '123',
+                  child: Card(
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: 4),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 20,
+                            child: Material(
+                              clipBehavior: Clip.antiAlias,
+                              type: MaterialType.transparency,
+                              shape: CircleBorder(),
+                              child: IconButton(
+                                color: Colors.black,
+                                icon: Icon(Icons.menu), 
+                                onPressed: () => scaffoldKey.currentState.openDrawer(),
                               ),
-                            ), 
-                            onPressed: null
+                            ),
                           ),
-                        ),
-                      ],
+                          Expanded(
+                            flex: 60,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.of(context)
+                                  .push(
+                                    PageRouteBuilder(
+                                      barrierColor: Colors.black26,
+                                      opaque: false,
+                                      pageBuilder: (context, animation, secondaryAnimation) {
+                                        return SearchScreen();
+                                      },
+                                      transitionsBuilder: (
+                                        context,animation,secondaryAnimation,child) {
+                                          return child;
+                                      },
+                                    )
+                                  );
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 12),
+                                child: Text(
+                                  'Pesquisar no e-mail',
+                                  style: TextStyle(
+                                    color: Colors.grey[600]
+                                  ),
+                                ),
+                              ),
+                            )
+                          ),
+                          Expanded(
+                            flex: 20,
+                            child: IconButton(
+                              icon: CircleAvatar(
+                                backgroundImage: NetworkImage(
+                                  'https://images.unsplash.com/photo-1493666438817'
+                                  '-866a91353ca9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1498&q=80'
+                                ),
+                              ), 
+                              onPressed: null
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
