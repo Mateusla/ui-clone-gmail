@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:ui_clone_gmail/controllers/email.item.component.comtroller.dart';
+import 'package:ui_clone_gmail/controllers/email.item.component.controller.dart';
 import 'package:ui_clone_gmail/models/email.model.dart';
 
 class EmailItemComponent extends StatelessWidget {

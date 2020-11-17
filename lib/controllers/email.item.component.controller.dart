@@ -1,5 +1,5 @@
 import 'package:mobx/mobx.dart';
-part 'email.item.component.comtroller.g.dart';
+part 'email.item.component.controller.g.dart';
 
 class EmailItemComponentController = _EmailItemComponentControllerBase with _$EmailItemComponentController;
 

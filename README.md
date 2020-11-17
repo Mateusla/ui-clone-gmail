@@ -1,6 +1,6 @@
 # UI Clone Gmail
 
-Um clone de interface do usuário do Gmail desenvolvido com Flutter.
+Um clone de interface do usuário do Gmail desenvolvido com Flutter e gerência de estado com MobX.
 
 ## Página Inicial
 
